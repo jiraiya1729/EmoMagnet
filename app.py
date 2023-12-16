@@ -40,6 +40,7 @@ def fun(list):
     data = pd.DataFrame()
 
     # If list of emotion's contain only 1 emotion
+    print(len(list))
     if len(list) == 1:
         # Emotion name
         v = list[0]
@@ -49,23 +50,23 @@ def fun(list):
 
         if v == 'Neutral':
             # Adding rows to data
-            data = data.append(df_neutral.sample(n=t))
+            data = df_neutral.sample(n=t)
 
         elif v == 'Angry':
             # Adding rows to data
-            data = data.append(df_angry.sample(n=t))
+            data = df_angry.sample(n=t)
 
         elif v == 'fear':
             # Adding rows to data
-            data = data.append(df_fear.sample(n=t))
+            data = df_fear.sample(n=t)
 
         elif v == 'happy':
             # Adding rows to data
-            data = data.append(df_happy.sample(n=t))
+            data = df_happy.sample(n=t)
 
         else:
             # Adding rows to data
-            data = data.append(df_sad.sample(n=t))
+            data = df_sad.sample(n=t)
 
     elif len(list) == 2:
         # Row's count per emotion
@@ -80,23 +81,23 @@ def fun(list):
 
             if v == 'Neutral':
                 # Adding rows to data
-                data = data.append(df_neutral.sample(n=t))
+                data = pd.concat([data,df_neutral.sample(n=t)])
 
             elif v == 'Angry':
                 # Adding rows to data
-                data = data.append(df_angry.sample(n=t))
+                data = pd.concat([data,df_angry.sample(n=t)])
 
             elif v == 'fear':
                 # Adding rows to data
-                data = data.append(df_fear.sample(n=t))
+                data = pd.concat([data,df_fear.sample(n=t)])
 
             elif v == 'happy':
                 # Adding rows to data
-                data = data.append(df_happy.sample(n=t))
+                data = pd.concat([data,df_happy.sample(n=t)])
 
             else:
                 # Adding rows to data
-                data = data.append(df_sad.sample(n=t))
+                data = pd.concat([data,df_sad.sample(n=t)])
 
     elif len(list) == 3:
         # Row's count per emotion
@@ -111,23 +112,23 @@ def fun(list):
 
             if v == 'Neutral':
                 # Adding rows to data
-                data = data.append(df_neutral.sample(n=t))
+                data = pd.concat([data,df_neutral.sample(n=t)])
 
             elif v == 'Angry':
                 # Adding rows to data
-                data = data.append(df_angry.sample(n=t))
+                data = pd.concat([data,df_angry.sample(n=t)])
 
             elif v == 'fear':
                 # Adding rows to data
-                data = data.append(df_fear.sample(n=t))
+                data = pd.concat([data,df_fear.sample(n=t)])
 
             elif v == 'happy':
                 # Adding rows to data
-                data = data.append(df_happy.sample(n=t))
+                data = pd.concat([data,df_happy.sample(n=t)])
 
             else:
                 # Adding rows to data
-                data = data.append(df_sad.sample(n=t))
+                data = pd.concat([data,df_sad.sample(n=t)])
 
     elif len(list) == 4:
         # Row's count per emotion
@@ -142,23 +143,23 @@ def fun(list):
 
             if v == 'Neutral':
                 # Adding rows to data
-                data = data.append(df_neutral.sample(n=t))
+                data = pd.concat([data,df_neutral.sample(n=t)])
 
             elif v == 'Angry':
                 # Adding rows to data
-                data = data.append(df_angry.sample(n=t))
+                data = pd.concat([data,df_angry.sample(n=t)])
 
             elif v == 'fear':
                 # Adding rows to data
-                data = data.append(df_fear.sample(n=t))
+                data = pd.concat([data,df_fear.sample(n=t)])
 
             elif v == 'happy':
                 # Adding rows to data
-                data = data.append(df_happy.sample(n=t))
+                data = pd.concat([data,df_happy.sample(n=t)])
 
             else:
                 # Adding rows to data
-                data = data.append(df_sad.sample(n=t))
+                data = pd.concat([data,df_sad.sample(n=t)])  
     else:
         # Row's count per emotion
         times = [10,7,6,5,2]
@@ -172,23 +173,23 @@ def fun(list):
 
             if v == 'Neutral':
                 # Adding rows to data
-                data = data.append(df_neutral.sample(n=t))
+                data = pd.concat([data,df_neutral.sample(n=t)])
 
             elif v == 'Angry':
                 # Adding rows to data
-                data = data.append(df_angry.sample(n=t))
+                data = pd.concat([data,df_angry.sample(n=t)])
 
             elif v == 'fear':
                 # Adding rows to data
-                data = data.append(df_fear.sample(n=t))
+                data = pd.concat([data,df_fear.sample(n=t)])
 
             elif v == 'happy':
                 # Adding rows to data
-                data = data.append(df_happy.sample(n=t))
+                data = pd.concat([data,df_happy.sample(n=t)])
 
             else:
                 # Adding rows to data
-                data = data.append(df_sad.sample(n=t))
+                data = pd.concat([data,df_sad.sample(n=t)])
     return data
 
 
@@ -232,7 +233,7 @@ emotion_dict = {0: "Angry", 1: "Disgusted", 2: "Fearful", 3: "Happy", 4: "Neutra
 
 # Required syntax
 cv2.ocl.setUseOpenCL(False)
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(1)
 
 # Text or heading's
 st.markdown("<h2 style='text-align: center; color: white;'><b>Emotion based music recommendation</b></h2>", unsafe_allow_html=True)
@@ -327,6 +328,7 @@ try:
         st.write("---------------------------------------------------------------------------------------------------------------------")
 except:
     pass
+
 
 
 
